@@ -1171,27 +1171,27 @@ int main()
         psram_spi = psram_spi_init_clkdiv(pio1, -1, psram_clkdiv /* clkdiv */, false /* fudge */);
 #if TEST_PSRAM
         // Only bother to test every 97th address
-        if (test_psram(&psram_spi, 97) == 1) {
-            printf("Default PSRAM strategy of no fudge not working, switching to fudge\n");
-            psram_spi_uninit(psram_spi, false /* fudge */);
-            psram_spi = psram_spi_init_clkdiv(pio1, -1, psram_clkdiv /* clkdiv */, true /* fudge */);
-            if (test_psram(&psram_spi, 97) == 1) { 
-                printf("Error: No PSRAM strategies found to work!\n");
-                err_blink();
-            }
-        }
+//        if (test_psram(&psram_spi, 97) == 1) {
+//            printf("Default PSRAM strategy of no fudge not working, switching to fudge\n");
+//            psram_spi_uninit(psram_spi, false /* fudge */);
+//            psram_spi = psram_spi_init_clkdiv(pio1, -1, psram_clkdiv /* clkdiv */, true /* fudge */);
+//            if (test_psram(&psram_spi, 97) == 1) { 
+//                printf("Error: No PSRAM strategies found to work!\n");
+//                err_blink();
+//            }
+//        }
 #endif // TEST_PSRAM
     } else {
         psram_spi = psram_spi_init_clkdiv(pio1, -1, psram_clkdiv /* clkdiv */, true /* fudge */);
 #if TEST_PSRAM
-        if (test_psram(&psram_spi, 97) == 1) {
-            psram_spi_uninit(psram_spi, true /* fudge */);
-            psram_spi = psram_spi_init_clkdiv(pio1, -1, psram_clkdiv /* clkdiv */, false /* fudge */);
-            if (test_psram(&psram_spi, 97) == 1) { 
-                printf("Error: No PSRAM strategies found to work!\n");
-                err_blink();
-            }
-        }
+//        if (test_psram(&psram_spi, 97) == 1) {
+//            psram_spi_uninit(psram_spi, true /* fudge */);
+//            psram_spi = psram_spi_init_clkdiv(pio1, -1, psram_clkdiv /* clkdiv */, false /* fudge */);
+//            if (test_psram(&psram_spi, 97) == 1) { 
+//                printf("Error: No PSRAM strategies found to work!\n");
+//                err_blink();
+//            }
+//        }
 #endif // TEST_PSRAM
     }
 #endif // PSRAM
