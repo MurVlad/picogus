@@ -1110,10 +1110,13 @@ typedef enum {
 
 static init_status initPicoGUS()
 {
+    unsigned int a;
     // Get magic value from port on PicoGUS that is not on real GUS
     outp(CONTROL_PORT, 0xCC); // Knock on the door...
     outp(CONTROL_PORT, CMD_MAGIC); // Select magic string register
-    if (inp(DATA_PORT_HIGH) != 0xDD) {
+    a = inp(DATA_PORT_HIGH);
+    printf("%u\r\n",a);
+    if (a != 0xDD) {
         err_pigus();
         return INIT_NOT_DETECTED;
     };
@@ -1226,4 +1229,5 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
+
 
