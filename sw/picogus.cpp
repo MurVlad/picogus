@@ -518,7 +518,7 @@ __force_inline uint8_t read_picogus_high(void) {
     uint8_t ret;
     switch (sel_reg) {
     case CMD_MAGIC:  // PicoGUS magic string
-        return 0x77;
+        return 0x37;
     case CMD_PROTOCOL:  // PicoGUS protocol version
         return PICOGUS_PROTOCOL_VER;
     case CMD_FWSTRING: // Firmware string
