@@ -151,7 +151,7 @@ void play_usb(void);
 
 // PicoGUS control and data ports
 static bool control_active = false;
-static uint8_t sel_reg = 0;
+static uint8_t sel_reg = 2;
 static uint32_t cur_read = 0;
 static uint32_t cur_write = 0;
 static bool queueSaveSettings = false;
