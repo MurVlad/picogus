@@ -91,6 +91,7 @@ restart:
     out pins, 8         side 0b01 ; output data to be written, stalling with IOCHRDY low until data is ready
     out pindirs, 8      side 0b11 ; next 8 in pindirs is FF - set pindirs as output
     wait 1 gpio IOR_PIN side 0b10 ; - wait for IOR rising edge with IOCHRDY high and muxes to data
+    nop[3]              side 0b10
     ; out pins, 8         side 0b10 ; next 8 in pindirs is FF - reset data pins back to high
     out pindirs, 8      side 0b00 ; next 8 in pindirs is 00 - set pindirs back as input
 .wrap
